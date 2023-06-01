@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
-import { SuccessResponse } from 'src/shared/utils/response.util';
+import { SuccessResponse } from '../../../shared/utils/response.util';
 import { AddAttendeeDto, TalkDto } from '../dto/talk.dto';
 import { TalkService } from '../service/talk.service';
 
@@ -31,7 +31,7 @@ export class TalkController {
     return SuccessResponse('Attendee Added Successfully', talk)
   }
 
-  @Delete()
+  @Delete('/:id')
   async deleteTalk(@Param('id') id: string) {
     await this.talkService.deleteTalk(id);
     return SuccessResponse('Talk was deleted successfully');
