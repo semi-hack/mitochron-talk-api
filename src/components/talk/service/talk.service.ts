@@ -48,9 +48,7 @@ export class TalkService {
   }
 
   async deleteTalk(id: string): Promise<void> {
-    const talk = await this.talkRepo.findOne({
-      where: { id },
-    });
+    const talk = await this.talkRepo.findById(id)
 
     if (!talk) {
       throw new NotFoundException('Talk not found');
