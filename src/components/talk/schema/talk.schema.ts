@@ -16,9 +16,6 @@ export class Talk {
 
   @Prop([{ type: SchemaTypes.ObjectId, ref: 'Attendee' }])
   attendees: Types.ObjectId[];
-
-  @Prop({ type: Boolean, default: false })
-  deleted: string;
 }
 
 export const TalkSchema = SchemaFactory.createForClass(Talk);
